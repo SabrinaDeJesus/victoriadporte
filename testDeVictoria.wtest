@@ -1,0 +1,27 @@
+import atletaYcomite.*
+import disciplinas.*
+import elementos.*
+
+describe "Test de la atleta Victoria" {
+
+  test "El Presupuesto requerido es 8380 si Victoria se parece a Pareto" {
+    victoria.altura(150)
+    victoria.elemento(trajeDeJudo)
+    victoria.disciplina(judo)
+    victoria.cantDeEntrenadores(4)
+    assert.equals(8380, victoria.presupuesto())
+  }
+  test "El Presupuesto requerido es 2415 si Victoria se parece a Delpo" {
+    victoria.disciplina(tenis)
+    victoria.elemento(raqueta)
+    victoria.altura(210)
+    victoria.cantDeEntrenadores(2)
+    assert.equals(2415, victoria.presupuesto())    
+  }
+  test "El Presupuesto requerido es 2580 si Victoria usa una raqueta, practica judo con 1 entrenador" {
+    victoria.disciplina(judo)
+    victoria.elemento(raqueta)
+    victoria.cantDeEntrenadores(1)
+    assert.equals(2580, victoria.presupuesto())    
+  }
+}
